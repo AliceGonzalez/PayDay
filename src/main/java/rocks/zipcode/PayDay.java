@@ -43,7 +43,13 @@ public class PayDay {
      * @return a string of the form "Kris 215.00 10.75 204.25”
      */
     public String pay(String n, double rate, double worked, double deduct) {
-        return null;
+        String results;
+        double grossPay = rate * worked;
+        double deduction = grossPay * deduct;
+        double netPay = grossPay - deduction;
+        results = String.format("%s %.2f %.2f %.2f", n, grossPay, deduction, netPay);
+        return results;
+
     }
 
 
@@ -56,6 +62,7 @@ public class PayDay {
         private double hoursWorked;
         private double hourlyRate;
         private double deductionRate;
+
 
         public TimeCard(String n, double r, double w, double d) {
             this.name = n;
@@ -90,4 +97,5 @@ public class PayDay {
         };
         return cards;
     }
+
 }
